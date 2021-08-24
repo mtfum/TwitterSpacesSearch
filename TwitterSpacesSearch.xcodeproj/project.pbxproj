@@ -14,6 +14,8 @@
 		26B2CF1E26D5A4410080F222 /* TwitterSpacesSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF1D26D5A4410080F222 /* TwitterSpacesSearchTests.swift */; };
 		26B2CF2826D5A4410080F222 /* TwitterSpacesSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF2726D5A4410080F222 /* TwitterSpacesSearchUITests.swift */; };
 		26B2CF2A26D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF2926D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift */; };
+		26B2CF3826D5A7660080F222 /* sourcery in Frameworks */ = {isa = PBXBuildFile; productRef = 26B2CF3726D5A7660080F222 /* sourcery */; };
+		26B2CF4726D5A98E0080F222 /* Secret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF4626D5A98E0080F222 /* Secret.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 		26B2CF2326D5A4410080F222 /* TwitterSpacesSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterSpacesSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26B2CF2726D5A4410080F222 /* TwitterSpacesSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSpacesSearchUITests.swift; sourceTree = "<group>"; };
 		26B2CF2926D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSpacesSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		26B2CF4626D5A98E0080F222 /* Secret.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.generated.swift; path = Generated/Secret.generated.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26B2CF3826D5A7660080F222 /* sourcery in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +98,7 @@
 		26B2CF0B26D5A4400080F222 /* TwitterSpacesSearch */ = {
 			isa = PBXGroup;
 			children = (
+				26B2CF4626D5A98E0080F222 /* Secret.generated.swift */,
 				26B2CF0C26D5A4400080F222 /* TwitterSpacesSearchApp.swift */,
 				26B2CF0E26D5A4400080F222 /* ContentView.swift */,
 				26B2CF1026D5A4410080F222 /* Assets.xcassets */,
@@ -134,6 +139,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26B2CF2D26D5A4410080F222 /* Build configuration list for PBXNativeTarget "TwitterSpacesSearch" */;
 			buildPhases = (
+				26B2CF3926D5A8F70080F222 /* Add Twitter API by sourcery */,
 				26B2CF0526D5A4400080F222 /* Sources */,
 				26B2CF0626D5A4400080F222 /* Frameworks */,
 				26B2CF0726D5A4400080F222 /* Resources */,
@@ -143,6 +149,9 @@
 			dependencies = (
 			);
 			name = TwitterSpacesSearch;
+			packageProductDependencies = (
+				26B2CF3726D5A7660080F222 /* sourcery */,
+			);
 			productName = TwitterSpacesSearch;
 			productReference = 26B2CF0926D5A4400080F222 /* TwitterSpacesSearch.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +224,9 @@
 				Base,
 			);
 			mainGroup = 26B2CF0026D5A4400080F222;
+			packageReferences = (
+				26B2CF3626D5A7660080F222 /* XCRemoteSwiftPackageReference "Sourcery" */,
+			);
 			productRefGroup = 26B2CF0A26D5A4400080F222 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -252,11 +264,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26B2CF3926D5A8F70080F222 /* Add Twitter API by sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Add Twitter API by sourcery";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p Generated\nsourcery --config .sourcery.secret.yml\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		26B2CF0526D5A4400080F222 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26B2CF4726D5A98E0080F222 /* Secret.generated.swift in Sources */,
 				26B2CF0F26D5A4400080F222 /* ContentView.swift in Sources */,
 				26B2CF0D26D5A4400080F222 /* TwitterSpacesSearchApp.swift in Sources */,
 			);
@@ -607,6 +641,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		26B2CF3626D5A7660080F222 /* XCRemoteSwiftPackageReference "Sourcery" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Sourcery";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		26B2CF3726D5A7660080F222 /* sourcery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26B2CF3626D5A7660080F222 /* XCRemoteSwiftPackageReference "Sourcery" */;
+			productName = sourcery;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 26B2CF0126D5A4400080F222 /* Project object */;
 }
