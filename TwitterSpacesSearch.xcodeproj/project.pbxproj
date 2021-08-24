@@ -14,8 +14,8 @@
 		26B2CF1E26D5A4410080F222 /* TwitterSpacesSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF1D26D5A4410080F222 /* TwitterSpacesSearchTests.swift */; };
 		26B2CF2826D5A4410080F222 /* TwitterSpacesSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF2726D5A4410080F222 /* TwitterSpacesSearchUITests.swift */; };
 		26B2CF2A26D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF2926D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift */; };
-		26B2CF3826D5A7660080F222 /* sourcery in Frameworks */ = {isa = PBXBuildFile; productRef = 26B2CF3726D5A7660080F222 /* sourcery */; };
 		26B2CF4726D5A98E0080F222 /* Secret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF4626D5A98E0080F222 /* Secret.generated.swift */; };
+		26B2CF4926D5AB620080F222 /* TwitterSearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF4826D5AB620080F222 /* TwitterSearchClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,7 @@
 		26B2CF2726D5A4410080F222 /* TwitterSpacesSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSpacesSearchUITests.swift; sourceTree = "<group>"; };
 		26B2CF2926D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSpacesSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		26B2CF4626D5A98E0080F222 /* Secret.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.generated.swift; path = Generated/Secret.generated.swift; sourceTree = SOURCE_ROOT; };
+		26B2CF4826D5AB620080F222 /* TwitterSearchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSearchClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26B2CF3826D5A7660080F222 /* sourcery in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +103,7 @@
 				26B2CF0E26D5A4400080F222 /* ContentView.swift */,
 				26B2CF1026D5A4410080F222 /* Assets.xcassets */,
 				26B2CF1226D5A4410080F222 /* Preview Content */,
+				26B2CF4826D5AB620080F222 /* TwitterSearchClient.swift */,
 			);
 			path = TwitterSpacesSearch;
 			sourceTree = "<group>";
@@ -150,7 +151,6 @@
 			);
 			name = TwitterSpacesSearch;
 			packageProductDependencies = (
-				26B2CF3726D5A7660080F222 /* sourcery */,
 			);
 			productName = TwitterSpacesSearch;
 			productReference = 26B2CF0926D5A4400080F222 /* TwitterSpacesSearch.app */;
@@ -225,7 +225,6 @@
 			);
 			mainGroup = 26B2CF0026D5A4400080F222;
 			packageReferences = (
-				26B2CF3626D5A7660080F222 /* XCRemoteSwiftPackageReference "Sourcery" */,
 			);
 			productRefGroup = 26B2CF0A26D5A4400080F222 /* Products */;
 			projectDirPath = "";
@@ -281,7 +280,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p Generated\nsourcery --config .sourcery.secret.yml\n\n";
+			shellScript = "# mkdir -p Sourcery\n# sourcery --config .sourcery.secret.yml\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -290,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26B2CF4926D5AB620080F222 /* TwitterSearchClient.swift in Sources */,
 				26B2CF4726D5A98E0080F222 /* Secret.generated.swift in Sources */,
 				26B2CF0F26D5A4400080F222 /* ContentView.swift in Sources */,
 				26B2CF0D26D5A4400080F222 /* TwitterSpacesSearchApp.swift in Sources */,
@@ -461,7 +461,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -491,7 +491,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -641,25 +641,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		26B2CF3626D5A7660080F222 /* XCRemoteSwiftPackageReference "Sourcery" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzysztofzablocki/Sourcery";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		26B2CF3726D5A7660080F222 /* sourcery */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 26B2CF3626D5A7660080F222 /* XCRemoteSwiftPackageReference "Sourcery" */;
-			productName = sourcery;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 26B2CF0126D5A4400080F222 /* Project object */;
 }
