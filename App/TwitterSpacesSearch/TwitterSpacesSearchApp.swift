@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import AppFeature
 
 @main
 struct TwitterSpacesSearchApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      TwitterSpacesSearchView()
     }
+  }
 }

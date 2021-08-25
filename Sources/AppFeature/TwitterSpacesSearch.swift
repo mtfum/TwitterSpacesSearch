@@ -1,17 +1,14 @@
-//
-//  ContentView.swift
-//  TwitterSpacesSearch
-//
-//  Created by Fumiya Yamanaka on 2021/08/24.
-//
-
 import SwiftUI
+import TwitterService
 
-struct ContentView: View {
+public struct TwitterSpacesSearchView: View {
+
   @StateObject private var viewModel = ViewModel()
 
-  var body: some View {
-    List(viewModel.spaces) { space in
+  public init() {}
+
+  public var body: some View {
+    List(viewModel.spaces, id: \.id) { space in
       HStack {
         Text(space.title)
           .fontWeight(.medium)
@@ -36,13 +33,13 @@ class ViewModel: ObservableObject {
 
   func getData() throws {
     Task {
-      spaces = try await TwitterSeachClient().searchSpaces(with: "Twitter", state: .live)
+      spaces = try await TwitterService.search(query: "Twitter", state: .live).data
     }
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    TwitterSpacesSearchView()
   }
 }

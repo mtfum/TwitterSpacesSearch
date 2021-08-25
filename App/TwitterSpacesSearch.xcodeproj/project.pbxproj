@@ -7,47 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261FEECB26D6B5C4002C0383 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 261FEECA26D6B5C4002C0383 /* AppFeature */; };
 		26B2CF0D26D5A4400080F222 /* TwitterSpacesSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF0C26D5A4400080F222 /* TwitterSpacesSearchApp.swift */; };
-		26B2CF0F26D5A4400080F222 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF0E26D5A4400080F222 /* ContentView.swift */; };
 		26B2CF1126D5A4410080F222 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26B2CF1026D5A4410080F222 /* Assets.xcassets */; };
 		26B2CF1426D5A4410080F222 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26B2CF1326D5A4410080F222 /* Preview Assets.xcassets */; };
-		26B2CF1E26D5A4410080F222 /* TwitterSpacesSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF1D26D5A4410080F222 /* TwitterSpacesSearchTests.swift */; };
-		26B2CF2826D5A4410080F222 /* TwitterSpacesSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF2726D5A4410080F222 /* TwitterSpacesSearchUITests.swift */; };
-		26B2CF2A26D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF2926D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift */; };
-		26B2CF4726D5A98E0080F222 /* Secret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF4626D5A98E0080F222 /* Secret.generated.swift */; };
-		26B2CF4926D5AB620080F222 /* TwitterSearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2CF4826D5AB620080F222 /* TwitterSearchClient.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		26B2CF1A26D5A4410080F222 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 26B2CF0126D5A4400080F222 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 26B2CF0826D5A4400080F222;
-			remoteInfo = TwitterSpacesSearch;
-		};
-		26B2CF2426D5A4410080F222 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 26B2CF0126D5A4400080F222 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 26B2CF0826D5A4400080F222;
-			remoteInfo = TwitterSpacesSearch;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		261FEEC926D6B5BB002C0383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		26B2CF0926D5A4400080F222 /* TwitterSpacesSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterSpacesSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26B2CF0C26D5A4400080F222 /* TwitterSpacesSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSpacesSearchApp.swift; sourceTree = "<group>"; };
-		26B2CF0E26D5A4400080F222 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26B2CF1026D5A4410080F222 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26B2CF1326D5A4410080F222 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		26B2CF1926D5A4410080F222 /* TwitterSpacesSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterSpacesSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		26B2CF1D26D5A4410080F222 /* TwitterSpacesSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSpacesSearchTests.swift; sourceTree = "<group>"; };
-		26B2CF2326D5A4410080F222 /* TwitterSpacesSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterSpacesSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		26B2CF2726D5A4410080F222 /* TwitterSpacesSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSpacesSearchUITests.swift; sourceTree = "<group>"; };
-		26B2CF2926D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSpacesSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		26B2CF4626D5A98E0080F222 /* Secret.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.generated.swift; path = Generated/Secret.generated.swift; sourceTree = SOURCE_ROOT; };
-		26B2CF4826D5AB620080F222 /* TwitterSearchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSearchClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,20 +26,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26B2CF1626D5A4410080F222 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26B2CF2026D5A4410080F222 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				261FEECB26D6B5C4002C0383 /* AppFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,8 +37,6 @@
 			isa = PBXGroup;
 			children = (
 				26B2CF0B26D5A4400080F222 /* TwitterSpacesSearch */,
-				26B2CF1C26D5A4410080F222 /* TwitterSpacesSearchTests */,
-				26B2CF2626D5A4410080F222 /* TwitterSpacesSearchUITests */,
 				26B2CF0A26D5A4400080F222 /* Products */,
 				26D9ECDC26D5DE4E0061909A /* Frameworks */,
 			);
@@ -90,8 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				26B2CF0926D5A4400080F222 /* TwitterSpacesSearch.app */,
-				26B2CF1926D5A4410080F222 /* TwitterSpacesSearchTests.xctest */,
-				26B2CF2326D5A4410080F222 /* TwitterSpacesSearchUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,12 +53,10 @@
 		26B2CF0B26D5A4400080F222 /* TwitterSpacesSearch */ = {
 			isa = PBXGroup;
 			children = (
-				26B2CF4626D5A98E0080F222 /* Secret.generated.swift */,
+				261FEEC926D6B5BB002C0383 /* Info.plist */,
 				26B2CF0C26D5A4400080F222 /* TwitterSpacesSearchApp.swift */,
-				26B2CF0E26D5A4400080F222 /* ContentView.swift */,
 				26B2CF1026D5A4410080F222 /* Assets.xcassets */,
 				26B2CF1226D5A4410080F222 /* Preview Content */,
-				26B2CF4826D5AB620080F222 /* TwitterSearchClient.swift */,
 			);
 			path = TwitterSpacesSearch;
 			sourceTree = "<group>";
@@ -115,23 +67,6 @@
 				26B2CF1326D5A4410080F222 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		26B2CF1C26D5A4410080F222 /* TwitterSpacesSearchTests */ = {
-			isa = PBXGroup;
-			children = (
-				26B2CF1D26D5A4410080F222 /* TwitterSpacesSearchTests.swift */,
-			);
-			path = TwitterSpacesSearchTests;
-			sourceTree = "<group>";
-		};
-		26B2CF2626D5A4410080F222 /* TwitterSpacesSearchUITests */ = {
-			isa = PBXGroup;
-			children = (
-				26B2CF2726D5A4410080F222 /* TwitterSpacesSearchUITests.swift */,
-				26B2CF2926D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift */,
-			);
-			path = TwitterSpacesSearchUITests;
 			sourceTree = "<group>";
 		};
 		26D9ECDC26D5DE4E0061909A /* Frameworks */ = {
@@ -159,46 +94,11 @@
 			);
 			name = TwitterSpacesSearch;
 			packageProductDependencies = (
+				261FEECA26D6B5C4002C0383 /* AppFeature */,
 			);
 			productName = TwitterSpacesSearch;
 			productReference = 26B2CF0926D5A4400080F222 /* TwitterSpacesSearch.app */;
 			productType = "com.apple.product-type.application";
-		};
-		26B2CF1826D5A4410080F222 /* TwitterSpacesSearchTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 26B2CF3026D5A4410080F222 /* Build configuration list for PBXNativeTarget "TwitterSpacesSearchTests" */;
-			buildPhases = (
-				26B2CF1526D5A4410080F222 /* Sources */,
-				26B2CF1626D5A4410080F222 /* Frameworks */,
-				26B2CF1726D5A4410080F222 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				26B2CF1B26D5A4410080F222 /* PBXTargetDependency */,
-			);
-			name = TwitterSpacesSearchTests;
-			productName = TwitterSpacesSearchTests;
-			productReference = 26B2CF1926D5A4410080F222 /* TwitterSpacesSearchTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		26B2CF2226D5A4410080F222 /* TwitterSpacesSearchUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 26B2CF3326D5A4410080F222 /* Build configuration list for PBXNativeTarget "TwitterSpacesSearchUITests" */;
-			buildPhases = (
-				26B2CF1F26D5A4410080F222 /* Sources */,
-				26B2CF2026D5A4410080F222 /* Frameworks */,
-				26B2CF2126D5A4410080F222 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				26B2CF2526D5A4410080F222 /* PBXTargetDependency */,
-			);
-			name = TwitterSpacesSearchUITests;
-			productName = TwitterSpacesSearchUITests;
-			productReference = 26B2CF2326D5A4410080F222 /* TwitterSpacesSearchUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -212,14 +112,6 @@
 				TargetAttributes = {
 					26B2CF0826D5A4400080F222 = {
 						CreatedOnToolsVersion = 13.0;
-					};
-					26B2CF1826D5A4410080F222 = {
-						CreatedOnToolsVersion = 13.0;
-						TestTargetID = 26B2CF0826D5A4400080F222;
-					};
-					26B2CF2226D5A4410080F222 = {
-						CreatedOnToolsVersion = 13.0;
-						TestTargetID = 26B2CF0826D5A4400080F222;
 					};
 				};
 			};
@@ -239,8 +131,6 @@
 			projectRoot = "";
 			targets = (
 				26B2CF0826D5A4400080F222 /* TwitterSpacesSearch */,
-				26B2CF1826D5A4410080F222 /* TwitterSpacesSearchTests */,
-				26B2CF2226D5A4410080F222 /* TwitterSpacesSearchUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,20 +142,6 @@
 			files = (
 				26B2CF1426D5A4410080F222 /* Preview Assets.xcassets in Resources */,
 				26B2CF1126D5A4410080F222 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26B2CF1726D5A4410080F222 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26B2CF2126D5A4410080F222 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,44 +173,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26B2CF4926D5AB620080F222 /* TwitterSearchClient.swift in Sources */,
-				26B2CF4726D5A98E0080F222 /* Secret.generated.swift in Sources */,
-				26B2CF0F26D5A4400080F222 /* ContentView.swift in Sources */,
 				26B2CF0D26D5A4400080F222 /* TwitterSpacesSearchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		26B2CF1526D5A4410080F222 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				26B2CF1E26D5A4410080F222 /* TwitterSpacesSearchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26B2CF1F26D5A4410080F222 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				26B2CF2826D5A4410080F222 /* TwitterSpacesSearchUITests.swift in Sources */,
-				26B2CF2A26D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		26B2CF1B26D5A4410080F222 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 26B2CF0826D5A4400080F222 /* TwitterSpacesSearch */;
-			targetProxy = 26B2CF1A26D5A4410080F222 /* PBXContainerItemProxy */;
-		};
-		26B2CF2526D5A4410080F222 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 26B2CF0826D5A4400080F222 /* TwitterSpacesSearch */;
-			targetProxy = 26B2CF2426D5A4410080F222 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		26B2CF2B26D5A4410080F222 /* Debug */ = {
@@ -464,6 +307,7 @@
 				DEVELOPMENT_TEAM = GCXLS66975;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TwitterSpacesSearch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -494,6 +338,7 @@
 				DEVELOPMENT_TEAM = GCXLS66975;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TwitterSpacesSearch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -510,102 +355,6 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		26B2CF3126D5A4410080F222 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GCXLS66975;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mtfum.TwitterSpacesSearchTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwitterSpacesSearch.app/TwitterSpacesSearch";
-			};
-			name = Debug;
-		};
-		26B2CF3226D5A4410080F222 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GCXLS66975;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mtfum.TwitterSpacesSearchTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwitterSpacesSearch.app/TwitterSpacesSearch";
-			};
-			name = Release;
-		};
-		26B2CF3426D5A4410080F222 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GCXLS66975;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mtfum.TwitterSpacesSearchUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TwitterSpacesSearch;
-			};
-			name = Debug;
-		};
-		26B2CF3526D5A4410080F222 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GCXLS66975;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mtfum.TwitterSpacesSearchUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TwitterSpacesSearch;
 			};
 			name = Release;
 		};
@@ -630,25 +379,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		26B2CF3026D5A4410080F222 /* Build configuration list for PBXNativeTarget "TwitterSpacesSearchTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				26B2CF3126D5A4410080F222 /* Debug */,
-				26B2CF3226D5A4410080F222 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		26B2CF3326D5A4410080F222 /* Build configuration list for PBXNativeTarget "TwitterSpacesSearchUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				26B2CF3426D5A4410080F222 /* Debug */,
-				26B2CF3526D5A4410080F222 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		261FEECA26D6B5C4002C0383 /* AppFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppFeature;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 26B2CF0126D5A4400080F222 /* Project object */;
 }
