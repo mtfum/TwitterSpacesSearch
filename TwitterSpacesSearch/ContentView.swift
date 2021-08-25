@@ -11,12 +11,12 @@ struct ContentView: View {
   @StateObject private var viewModel = ViewModel()
 
   var body: some View {
-    List(viewModel.data) { d in
+    List(viewModel.spaces) { space in
       HStack {
-        Text(d.id)
+        Text(space.title)
           .fontWeight(.medium)
           .padding()
-        Text(d.state)
+        Text(space.state.rawValue)
           .fontWeight(.medium)
           .padding()
       }
@@ -32,11 +32,11 @@ struct ContentView: View {
 }
 
 class ViewModel: ObservableObject {
-  @Published private(set) var data: [SearchData] = []
+  @Published private(set) var spaces: [Space] = []
 
   func getData() throws {
     Task {
-      data = try await TwitterSeachClient().searchSpaces(with: "Twitter", state: .live)
+      spaces = try await TwitterSeachClient().searchSpaces(with: "Twitter", state: .live)
     }
   }
 }
