@@ -82,6 +82,7 @@
 				26B2CF1C26D5A4410080F222 /* TwitterSpacesSearchTests */,
 				26B2CF2626D5A4410080F222 /* TwitterSpacesSearchUITests */,
 				26B2CF0A26D5A4400080F222 /* Products */,
+				26D9ECDC26D5DE4E0061909A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +132,13 @@
 				26B2CF2926D5A4410080F222 /* TwitterSpacesSearchUITestsLaunchTests.swift */,
 			);
 			path = TwitterSpacesSearchUITests;
+			sourceTree = "<group>";
+		};
+		26D9ECDC26D5DE4E0061909A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
