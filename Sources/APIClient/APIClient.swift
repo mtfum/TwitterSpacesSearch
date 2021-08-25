@@ -43,6 +43,10 @@ public struct APIClient {
     do {
       let request = try createURLRequest(method: method, path: path, queryItems: queryItems)
       let (data, response) = try await session.data(for: request, delegate: delegate)
+      #if DEBUG
+      dump(response)
+      dump(String(data: data, encoding: .utf8))
+      #endif
       let r = try decoder.decode(R.self, from: data)
       return r
     } catch {

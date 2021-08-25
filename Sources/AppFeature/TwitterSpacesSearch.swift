@@ -9,14 +9,7 @@ public struct TwitterSpacesSearchView: View {
 
   public var body: some View {
     List(viewModel.spaces, id: \.id) { space in
-      HStack {
-        Text(space.title)
-          .fontWeight(.medium)
-          .padding()
-        Text(space.state.rawValue)
-          .fontWeight(.medium)
-          .padding()
-      }
+      SpaceView(space: space)
     }
     .task {
       do {

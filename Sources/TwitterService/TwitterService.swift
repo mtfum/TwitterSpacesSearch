@@ -29,6 +29,7 @@ public struct SearchMetaData: Decodable {
 public enum TwitterService {
 
   private static let spaceFields = "host_ids,created_at,creator_id,id,lang,invited_user_ids,speaker_ids,started_at,state,title,updated_at,scheduled_start,is_ticketed"
+  private static let userFields = "created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld"
 
   private static let client = APIClient.live
 
@@ -39,7 +40,9 @@ public enum TwitterService {
       queryItems: [
         .init(name: "query", value: query),
         .init(name: "state", value: state.rawValue),
-        .init(name: "space.fields", value: spaceFields)
+        .init(name: "space.fields", value: spaceFields),
+        .init(name: "expansions", value: ""),
+        .init(name: "user.fields", value: userFields)
       ]
     )
   }
