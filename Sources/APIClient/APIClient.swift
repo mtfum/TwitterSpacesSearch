@@ -41,8 +41,8 @@ public struct APIClient {
 
   public func request<R: Decodable>(method: HTTPMethod, path: PathType, queryItems: [URLQueryItem]) async throws -> R {
     do {
-      let url = try createURL(method: method, path: path)
-      let (data, _) = try await session.data(from: url, delegate: delegate)
+      let request = try createURLRequest(method: method, path: path, queryItems: queryItems)
+      let (data, response) = try await session.data(for: request, delegate: delegate)
       let r = try decoder.decode(R.self, from: data)
       return r
     } catch {
@@ -50,13 +50,25 @@ public struct APIClient {
     }
   }
 
-  private func createURL(method: HTTPMethod, path: PathType, queryItems: [URLQueryItem] = []) throws -> URL {
+  private func createURLRequest(method: HTTPMethod, path: PathType, queryItems: [URLQueryItem] = []) throws -> URLRequest {
     var components = URLComponents()
     components.scheme = "https"
     components.host = host
     components.path = path.rawValue
     components.queryItems = queryItems
-    guard let url = components.url else { throw NSError() }
-    return url
+
+    guard let url = components.url else { throw APIError.failedCreateURL }
+
+    var request = URLRequest(url: url)
+    request.httpMethod = method.rawValue
+    for (key, value) in headers {
+      request.setValue(value, forHTTPHeaderField: key)
+    }
+
+    return request
   }
+}
+
+public enum APIError: Error {
+  case failedCreateURL
 }

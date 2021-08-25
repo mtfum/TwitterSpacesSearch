@@ -13,8 +13,8 @@ import Foundation
 
 
 public enum Path: String, PathType {
-  case search = "2/spaces/search"
-  case lookup = "2/sppaces/lookup"
+  case search = "/2/spaces/search"
+  case lookup = "/2/sppaces/lookup"
 }
 
 public struct SearchResponse: Decodable {
@@ -28,6 +28,8 @@ public struct SearchMetaData: Decodable {
 
 public enum TwitterService {
 
+  private static let spaceFields = "host_ids,created_at,creator_id,id,lang,invited_user_ids,speaker_ids,started_at,state,title,updated_at,scheduled_start,is_ticketed"
+
   private static let client = APIClient.live
 
   public static func search(query: String, state: State) async throws -> SearchResponse {
@@ -36,7 +38,8 @@ public enum TwitterService {
       path: Path.search,
       queryItems: [
         .init(name: "query", value: query),
-        .init(name: "state", value: state.rawValue)
+        .init(name: "state", value: state.rawValue),
+        .init(name: "space.fields", value: spaceFields)
       ]
     )
   }
@@ -48,8 +51,8 @@ extension APIClient {
     host: { "api.twitter.com" },
     headers: {
       return [
-        "Content-Type": "application/json",
-        "Authorization": "Bearer token=\(Secret.twitterConsumerSecret)"
+        "content-type": "application/json; charset=utf-8",
+        "Authorization": "Bearer \(Secret.twitterBearerToken)"
       ]
     },
     decoder: decoder,
