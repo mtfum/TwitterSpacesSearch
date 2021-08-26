@@ -26,17 +26,17 @@ public struct APIClient {
   let delegate: URLSessionTaskDelegate?
 
   public init(
-    session: @escaping () -> URLSession,
+    session: @escaping () -> URLSession = { URLSession.shared },
     host: @escaping () -> String,
     headers: @escaping () -> [String: String],
     decoder: @escaping() -> JSONDecoder,
-    delegate: @escaping (() -> URLSessionTaskDelegate?)
+    delegate: (() -> URLSessionTaskDelegate?)? = nil
   ) {
     self.session = session()
     self.host = host()
     self.headers = headers()
     self.decoder = decoder()
-    self.delegate = delegate()
+    self.delegate = delegate?()
   }
 
   public func request<R: Decodable>(method: HTTPMethod, path: PathType, queryItems: [URLQueryItem]) async throws -> R {
@@ -44,12 +44,15 @@ public struct APIClient {
       let request = try createURLRequest(method: method, path: path, queryItems: queryItems)
       let (data, response) = try await session.data(for: request, delegate: delegate)
       #if DEBUG
-      dump(response)
-      dump(String(data: data, encoding: .utf8))
+      print(response)
+      print(String(data: data, encoding: .utf8)!)
       #endif
       let r = try decoder.decode(R.self, from: data)
       return r
     } catch {
+      #if DEBUG
+      print(error)
+      #endif
       throw error
     }
   }

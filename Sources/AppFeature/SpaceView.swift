@@ -1,11 +1,11 @@
 import SwiftUI
 import ClientModels
 
-public struct SpaceView: View {
+struct SpaceView: View {
 
-  let space: Space
+  let space: Model
 
-  public var body: some View {
+  var body: some View {
     VStack {
       HStack {
         Text(space.state.rawValue)
@@ -21,19 +21,15 @@ public struct SpaceView: View {
       HStack {
         Text("HOSTS:")
         Spacer()
-        ForEach(space.hostIds, id: \.self) { id in
-          HStack {
-            Text(id)
-          }
+        ForEach(space.hostUsers, id: \.id) { user in
+          UserIconView(user: user)
         }
       }
       HStack {
         Text("SPEAKERS:")
         Spacer()
-        ForEach(space.speakerIds, id: \.self) { id in
-          HStack {
-            Text(id)
-          }
+        ForEach(space.speakerUsers ?? [], id: \.id) { user in
+          UserIconView(user: user)
         }
       }
 
@@ -49,7 +45,7 @@ public struct SpaceView: View {
             .padding()
             .foregroundColor(Color.white)
         }
-        .frame(width: .infinity, height: 48, alignment: .center)
+        .frame(width: .infinity, height: 48)
         .padding()
       }
     }
@@ -61,11 +57,35 @@ public struct SpaceView: View {
     formatter.dateFormat = "HH:mm E, d MMM"
     return formatter.string(from: date)
   }
+}
 
+extension SpaceView {
+  struct Model {
+    let id, title, lang, creatorId: String
+    let updatedAt, createdAt, startedAt: Date
+    let state: ClientModels.State
+    let speakerUsers: [User]?
+    let hostUsers: [User]
+    let isTicketed: Bool
+
+    init(space: Space, users: [ID:User]) {
+      self.id = space.id
+      self.title = space.title
+      self.lang = space.lang
+      self.creatorId = space.creatorId
+      self.updatedAt = space.updatedAt
+      self.createdAt = space.createdAt
+      self.startedAt = space.startedAt
+      self.state = space.state
+      self.speakerUsers = space.speakerIds?.compactMap { users[$0] }
+      self.hostUsers = space.hostIds.compactMap { users[$0] }
+      self.isTicketed = space.isTicketed
+    }
+  }
 }
 
 struct SpaceView_Previews: PreviewProvider {
   static var previews: some View {
-    SpaceView(space: .demo)
+    SpaceView(space: .init(space: .demo, users: ["123": .demo]))
   }
 }

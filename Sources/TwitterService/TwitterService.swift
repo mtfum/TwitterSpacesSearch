@@ -15,23 +15,31 @@ import Foundation
 public enum Path: String, PathType {
   case search = "/2/spaces/search"
   case lookup = "/2/sppaces/lookup"
+  case users = "/2/users"
 }
 
 public struct SearchResponse: Decodable {
-  public let data: [Space]
-  public let meta: SearchMetaData
-}
 
-public struct SearchMetaData: Decodable {
-  public let resultCount: Int
+  public struct UserResponse: Decodable {
+    public let users: [User]
+  }
+
+  public struct SearchMetaData: Decodable {
+    public let resultCount: Int
+  }
+
+  public let data: [Space]
+  public let includes: UserResponse
+  public let meta: SearchMetaData
 }
 
 public enum TwitterService {
 
+  private static let expansions = "invited_user_ids,speaker_ids,creator_id,host_ids"
   private static let spaceFields = "host_ids,created_at,creator_id,id,lang,invited_user_ids,speaker_ids,started_at,state,title,updated_at,scheduled_start,is_ticketed"
   private static let userFields = "created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld"
 
-  private static let client = APIClient.live
+  private static let client = APIClient.twitter
 
   public static func search(query: String, state: State) async throws -> SearchResponse {
     return try await client.request(
@@ -41,16 +49,16 @@ public enum TwitterService {
         .init(name: "query", value: query),
         .init(name: "state", value: state.rawValue),
         .init(name: "space.fields", value: spaceFields),
-        .init(name: "expansions", value: ""),
+        .init(name: "expansions", value: expansions),
         .init(name: "user.fields", value: userFields)
       ]
     )
   }
+
 }
 
 extension APIClient {
-  static let live: APIClient = APIClient.init(
-    session: { URLSession.shared },
+  static let twitter: APIClient = APIClient.init(
     host: { "api.twitter.com" },
     headers: {
       return [
@@ -58,8 +66,7 @@ extension APIClient {
         "Authorization": "Bearer \(Secret.twitterBearerToken)"
       ]
     },
-    decoder: decoder,
-    delegate: { nil }
+    decoder: decoder
   )
 }
 

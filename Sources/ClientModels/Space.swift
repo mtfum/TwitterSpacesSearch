@@ -11,7 +11,8 @@ public struct Space: Decodable {
   public let id, title, lang, creatorId: String
   public let updatedAt, createdAt, startedAt: Date
   public let state: State
-  public let speakerIds, hostIds: [String]
+  public let speakerIds: [String]?
+  public let hostIds: [String]
   public let isTicketed: Bool
 }
 
@@ -26,8 +27,8 @@ extension Space {
     createdAt: .now,
     startedAt: .now,
     state: .scheduled,
-    speakerIds: ["a", "b", "c"],
-    hostIds: ["1", "2", "3"],
+    speakerIds: ["a", "b", "c", "123"],
+    hostIds: ["1", "2", "3", "123"],
     isTicketed: true
   )
 }
