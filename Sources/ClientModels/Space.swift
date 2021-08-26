@@ -8,7 +8,8 @@
 import Foundation
 
 public struct Space: Decodable {
-  public let id, title, lang, creatorId: String
+  public let id, lang, creatorId: String
+  public let title: String?
   public let updatedAt, createdAt, startedAt: Date
   public let state: State
   public let speakerIds: [String]?
@@ -20,9 +21,9 @@ public struct Space: Decodable {
 extension Space {
   public static let demo = Space(
     id: "123",
-    title: "Let's get started Space ",
-    lang: "en",
-    creatorId: "creatorId",
+    lang: "Let's get started Space ",
+    creatorId: "en",
+    title: "creatorId",
     updatedAt: .now,
     createdAt: .now,
     startedAt: .now,

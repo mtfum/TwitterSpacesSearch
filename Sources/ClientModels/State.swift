@@ -8,5 +8,5 @@
 import Foundation
 
 public enum State: String, Decodable {
-  case live, scheduled
+  case live, scheduled, ended
 }

@@ -6,9 +6,20 @@ struct UserIconView: View {
   let user: User
 
   var body: some View {
-    AsyncImage(url: user.profileImageUrl)
+    VStack(alignment: .center) {
+      AsyncImage(url: user.profileImageUrl) { image in
+        image
+          .resizable()
+          .frame(width: 40, height: 40)
+          .clipShape(Circle())
+      } placeholder: {
+        ProgressView()
+      }
+      Text(user.name)
+        .font(.caption)
+        .lineLimit(1)
+    }
       .padding()
-      .clipShape(Capsule())
   }
 }
 

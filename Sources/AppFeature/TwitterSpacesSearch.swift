@@ -8,20 +8,26 @@ public struct TwitterSpacesSearchView: View {
   public init() {}
 
   public var body: some View {
-    List(viewModel.spaces, id: \.id) { space in
-      SpaceView(space: .init(space: space, users: viewModel.users))
-    }
-    .task {
-      do {
-        try await viewModel.getData()
-      } catch {
-        dump(error.localizedDescription)
+    NavigationView {
+      List(viewModel.spaces, id: \.id) { space in
+        SpaceView(space: .init(space: space, users: viewModel.users))
+          .disabled(true)
+      }
+      .listStyle(.inset)
+      .navigationTitle("Spaces Search")
+      .task {
+        do {
+          try await viewModel.getData()
+        } catch {
+          dump(error.localizedDescription)
+        }
       }
     }
   }
 }
 
-class ViewModel: ObservableObject {
+@MainActor
+final class ViewModel: ObservableObject {
   @Published private(set) var spaces: [Space] = []
   @Published private(set) var users: [ID:User] = [:]
 
@@ -32,17 +38,6 @@ class ViewModel: ObservableObject {
     for user in response.includes.users {
       users[user.id] = user
     }
-  }
-
-  func filterUsers(space: Space) -> [User] {
-    var fileterd: [User] = []
-    let hostUsers = space.hostIds.compactMap { users[$0] }
-    let speackerUsers = space.speakerIds?.compactMap { users[$0] } ?? []
-
-    fileterd.append(contentsOf: hostUsers)
-    fileterd.append(contentsOf: speackerUsers)
-
-    return fileterd
   }
 }
 

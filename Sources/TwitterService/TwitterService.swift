@@ -15,7 +15,6 @@ import Foundation
 public enum Path: String, PathType {
   case search = "/2/spaces/search"
   case lookup = "/2/sppaces/lookup"
-  case users = "/2/users"
 }
 
 public struct SearchResponse: Decodable {

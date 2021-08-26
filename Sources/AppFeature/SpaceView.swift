@@ -6,30 +6,35 @@ struct SpaceView: View {
   let space: Model
 
   var body: some View {
-    VStack {
-      HStack {
-        Text(space.state.rawValue)
-          .font(.caption)
-        Spacer()
-        Text(format(date: space.startedAt))
-          .font(.caption2)
+    VStack(alignment: .leading, spacing: 8) {
+      VStack(alignment: .leading, spacing: 4) {
+        Text(space.title)
+          .font(.title)
+          .fontWeight(.medium)
+        StateTimeView(state: space.state, startedAt: space.startedAt)
       }
-      Text(space.title)
-        .font(.title2)
-        .padding()
 
-      HStack {
-        Text("HOSTS:")
-        Spacer()
-        ForEach(space.hostUsers, id: \.id) { user in
-          UserIconView(user: user)
+      VStack(alignment: .leading, spacing: 0) {
+        Text("Hosts")
+          .font(.headline)
+
+        HStack(alignment: .top) {
+          ForEach(space.hostUsers, id: \.id) { user in
+            UserIconView(user: user)
+          }
         }
       }
-      HStack {
-        Text("SPEAKERS:")
-        Spacer()
-        ForEach(space.speakerUsers ?? [], id: \.id) { user in
-          UserIconView(user: user)
+
+      if space.speakerUsers?.isEmpty == false {
+        VStack(alignment: .leading, spacing: 0) {
+          Text("Speakers")
+            .font(.headline)
+
+          HStack(alignment: .top) {
+            ForEach(space.speakerUsers ?? [], id: \.id) { user in
+              UserIconView(user: user)
+            }
+          }
         }
       }
 
@@ -49,13 +54,6 @@ struct SpaceView: View {
         .padding()
       }
     }
-    .padding()
-  }
-
-  private func format(date: Date) -> String {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "HH:mm E, d MMM"
-    return formatter.string(from: date)
   }
 }
 
@@ -70,7 +68,7 @@ extension SpaceView {
 
     init(space: Space, users: [ID:User]) {
       self.id = space.id
-      self.title = space.title
+      self.title = space.title ?? ""
       self.lang = space.lang
       self.creatorId = space.creatorId
       self.updatedAt = space.updatedAt
