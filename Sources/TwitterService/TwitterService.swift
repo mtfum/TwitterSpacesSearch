@@ -40,7 +40,7 @@ public enum TwitterService {
 
   private static let client = APIClient.twitter
 
-  public static func search(query: String, state: State) async throws -> SearchResponse {
+  public static func search(query: String, state: Space.State) async throws -> SearchResponse {
     return try await client.request(
       method: .get,
       path: Path.search,

@@ -3,7 +3,7 @@ import ClientModels
 
 struct SpaceView: View {
 
-  let space: Model
+  let space: Item
 
   var body: some View {
     VStack(alignment: .leading, spacing: 8) {
@@ -50,7 +50,6 @@ struct SpaceView: View {
             .padding()
             .foregroundColor(Color.white)
         }
-        .frame(width: .infinity, height: 48)
         .padding()
       }
     }
@@ -58,10 +57,10 @@ struct SpaceView: View {
 }
 
 extension SpaceView {
-  struct Model {
+  struct Item {
     let id, title, lang, creatorId: String
     let updatedAt, createdAt, startedAt: Date
-    let state: ClientModels.State
+    let state: Space.State
     let speakerUsers: [User]?
     let hostUsers: [User]
     let isTicketed: Bool

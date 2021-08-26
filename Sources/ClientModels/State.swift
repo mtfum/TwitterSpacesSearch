@@ -7,6 +7,8 @@
 
 import Foundation
 
-public enum State: String, Decodable {
-  case live, scheduled, ended
+extension Space {
+  public enum State: String, Decodable {
+    case live, scheduled, ended
+  }
 }

@@ -2,7 +2,7 @@ import SwiftUI
 import ClientModels
 
 struct StateTimeView: View {
-  let state: ClientModels.State
+  let state: Space.State
   let startedAt: Date
 
   var body: some View {
