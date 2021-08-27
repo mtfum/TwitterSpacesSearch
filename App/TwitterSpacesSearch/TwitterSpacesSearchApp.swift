@@ -12,7 +12,7 @@ import AppFeature
 struct TwitterSpacesSearchApp: App {
   var body: some Scene {
     WindowGroup {
-      TwitterSpacesSearchView()
+      SpacesSearchView()
     }
   }
 }

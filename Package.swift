@@ -12,12 +12,13 @@ let package = Package(
     .library(name: "TwitterService", targets: ["TwitterService"])
   ],
   dependencies: [
+    .package(url: "https://github.com/apple/swift-collections.git", from: "0.0.1"),
   ],
   targets: [
-    .target(name: "AppFeature", dependencies: ["TwitterService"]),
-    .target(name: "TwitterService", dependencies: ["APIClient", "ClientModels"]),
+    .target(name: "AppFeature", dependencies: ["TwitterService", .product(name: "OrderedCollections", package: "swift-collections")]),
+    .target(name: "TwitterService", dependencies: ["APIClient", "TwitterModels"]),
     .target(name: "APIClient", dependencies: []),
-    .target(name: "ClientModels", dependencies: []),
+    .target(name: "TwitterModels", dependencies: []),
 
     .testTarget(name: "TwitterSpacesSearchTests", dependencies: ["AppFeature"]),
   ]

@@ -47,6 +47,9 @@ public struct APIClient {
       print(response)
       print(String(data: data, encoding: .utf8)!)
       #endif
+      guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+        throw APIError.failedCommunication
+      }
       let r = try decoder.decode(R.self, from: data)
       return r
     } catch {
@@ -78,4 +81,16 @@ public struct APIClient {
 
 public enum APIError: Error {
   case failedCreateURL
+  case failedCommunication
+}
+
+extension APIError: LocalizedError {
+  public var errorDescription: String? {
+    switch self {
+    case .failedCommunication:
+      return "failed to communicate, please"
+    case .failedCreateURL:
+      return "failed to create url"
+    }
+  }
 }

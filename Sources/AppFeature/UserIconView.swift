@@ -1,25 +1,19 @@
 import SwiftUI
-import ClientModels
+import TwitterModels
 
 struct UserIconView: View {
 
   let user: User
 
   var body: some View {
-    VStack(alignment: .center) {
-      AsyncImage(url: user.profileImageUrl) { image in
-        image
-          .resizable()
-          .frame(width: 40, height: 40)
-          .clipShape(Circle())
-      } placeholder: {
-        ProgressView()
-      }
-      Text(user.name)
-        .font(.caption)
-        .lineLimit(1)
+    AsyncImage(url: user.profileImageUrl) { image in
+      image
+        .resizable()
+        .frame(width: 40, height: 40)
+        .clipShape(Circle())
+    } placeholder: {
+      ProgressView()
     }
-      .padding()
   }
 }
 

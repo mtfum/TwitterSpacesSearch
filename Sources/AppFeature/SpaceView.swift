@@ -1,7 +1,9 @@
 import SwiftUI
-import ClientModels
+import TwitterModels
 
 struct SpaceView: View {
+
+  @Environment(\.openURL) var openURL
 
   let space: Item
 
@@ -14,46 +16,45 @@ struct SpaceView: View {
         StateTimeView(state: space.state, startedAt: space.startedAt)
       }
 
-      VStack(alignment: .leading, spacing: 0) {
-        Text("Hosts")
-          .font(.headline)
+      createUsersView(title: "Hosts", users: space.hostUsers)
 
-        HStack(alignment: .top) {
-          ForEach(space.hostUsers, id: \.id) { user in
-            UserIconView(user: user)
-          }
-        }
-      }
-
-      if space.speakerUsers?.isEmpty == false {
-        VStack(alignment: .leading, spacing: 0) {
-          Text("Speakers")
-            .font(.headline)
-
-          HStack(alignment: .top) {
-            ForEach(space.speakerUsers ?? [], id: \.id) { user in
-              UserIconView(user: user)
-            }
-          }
-        }
+      if let users = space.speakerUsers, !users.isEmpty {
+        createUsersView(title: "Speakers", users: users)
       }
 
       Button(action: {
-        print("sign up bin tapped")
+        if let url = URL(string: "https://twitter.com/i/spaces/\(space.id)") {
+          openURL(url)
+        }
       }) {
         ZStack {
           RoundedRectangle(cornerRadius: 48)
             .fill()
           Text("Join")
-            .frame(minWidth: 0, maxWidth: .infinity)
             .font(Font.title3)
             .padding()
             .foregroundColor(Color.white)
         }
+        .frame(height: 48)
         .padding()
       }
     }
   }
+
+  func createUsersView(title: String, users: [User]) -> some View {
+    VStack(alignment: .leading, spacing: 4) {
+      Text(title)
+        .font(.headline)
+      ScrollView(.horizontal) {
+        HStack(spacing: 8) {
+          ForEach(users, id: \.id) { user in
+            UserIconView(user: user)
+          }
+        }
+      }
+    }
+  }
+
 }
 
 extension SpaceView {
