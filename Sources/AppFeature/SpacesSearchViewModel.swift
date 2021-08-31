@@ -41,7 +41,7 @@ final class SpacesSearchViewModel: ObservableObject {
 
   private func setError(message: String) {
     items = []
-      currentErrorMessage = message
+    currentErrorMessage = message
   }
 
   private func addHistory(_ query: String) {
