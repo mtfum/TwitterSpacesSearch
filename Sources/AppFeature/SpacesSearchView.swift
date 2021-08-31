@@ -23,7 +23,7 @@ public struct SpacesSearchView: View {
   }
 
   func mainView() -> some View {
-    if viewModel.spaces.isEmpty {
+    if viewModel.items.isEmpty {
       if viewModel.isSearching {
         return AnyView(ProgressView())
       } else {
@@ -36,7 +36,7 @@ public struct SpacesSearchView: View {
     } else {
       return AnyView(
         List {
-          ForEach(viewModel.spaces, id: \.id) { space in
+          ForEach(viewModel.items, id: \.id) { space in
             SpaceView(space: space)
           }
         }
