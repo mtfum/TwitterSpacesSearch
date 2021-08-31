@@ -4,10 +4,9 @@ import OrderedCollections
 
 private let searchHistoryKey = "searchHistory"
 
-@MainActor
 final class SpacesSearchViewModel: ObservableObject {
 
-  @Published private(set) var spaces: [SpaceView.Item] = []
+  @Published private(set) var items: [SpaceView.Item] = []
   @Published private(set) var currentErrorMessage: String? = nil
   @Published private(set) var isSearching: Bool = false
 
@@ -15,6 +14,7 @@ final class SpacesSearchViewModel: ObservableObject {
     return UserDefaults.standard.object(forKey: searchHistoryKey) as? [String] ?? []
   }
 
+  @MainActor
   func getData(query: String) {
     Task {
       do {
@@ -25,23 +25,23 @@ final class SpacesSearchViewModel: ObservableObject {
             users[user.id] = user
           })
 
-          self.spaces = spaces.map { SpaceView.Item(space: $0, users: usersDictionary) }
+          items = spaces.map { SpaceView.Item(space: $0, users: usersDictionary) }
           currentErrorMessage = nil
           addHistory(query)
         } else {
-          self.spaces = []
-          if let error = response.errors?.first  {
-            currentErrorMessage = error.detail ?? error.title ?? "ERROR!"
-          } else {
-            currentErrorMessage = "Currently there is no results.\nplease use another keyword!"
-          }
+          let message = response.errors?.first?.detail ?? "Currently there is no results.\nplease use another keyword!"
+          setError(message: message)
         }
       } catch {
-        self.spaces = []
-        currentErrorMessage = error.localizedDescription
+        setError(message: error.localizedDescription)
       }
       isSearching = false
     }
+  }
+
+  private func setError(message: String) {
+    items = []
+    currentErrorMessage = message
   }
 
   private func addHistory(_ query: String) {

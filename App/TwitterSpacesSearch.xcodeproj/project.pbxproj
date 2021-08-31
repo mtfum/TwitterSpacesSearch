@@ -83,7 +83,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26B2CF2D26D5A4410080F222 /* Build configuration list for PBXNativeTarget "TwitterSpacesSearch" */;
 			buildPhases = (
-				26B2CF3926D5A8F70080F222 /* Add Twitter API by sourcery */,
 				26B2CF0526D5A4400080F222 /* Sources */,
 				26B2CF0626D5A4400080F222 /* Frameworks */,
 				26B2CF0726D5A4400080F222 /* Resources */,
@@ -146,27 +145,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		26B2CF3926D5A8F70080F222 /* Add Twitter API by sourcery */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Add Twitter API by sourcery";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# mkdir -p Sourcery\n# sourcery --config .sourcery.secret.yml\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		26B2CF0526D5A4400080F222 /* Sources */ = {
