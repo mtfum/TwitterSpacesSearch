@@ -6,6 +6,8 @@ private let searchHistoryKey = "searchHistory"
 
 final class SpacesSearchViewModel: ObservableObject {
 
+  static let queryStates: [Space.State] = [.live, .scheduled]
+
   @Published private(set) var items: [SpaceView.Item] = []
   @Published private(set) var currentErrorMessage: String? = nil
   @Published private(set) var isSearching: Bool = false
@@ -15,11 +17,11 @@ final class SpacesSearchViewModel: ObservableObject {
   }
 
   @MainActor
-  func getData(query: String) {
+  func getData(query: String, state: Space.State) {
     Task {
       do {
         isSearching = true
-        let response = try await TwitterService.search(query: query, state: .live)
+        let response = try await TwitterService.search(query: query, state: state)
         if let spaces = response.data, let users = response.includes?.users {
           let usersDictionary: [ID: User] = users.reduce(into: [:], { users, user in
             users[user.id] = user

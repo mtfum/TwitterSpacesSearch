@@ -1,9 +1,11 @@
 import SwiftUI
+import TwitterModels
 
 public struct SpacesSearchView: View {
 
   @StateObject private var viewModel = SpacesSearchViewModel()
   @State private var query = ""
+  @State private var currentState = Space.State.live
 
   public init() {}
 
@@ -18,7 +20,7 @@ public struct SpacesSearchView: View {
       }
     })
     .onSubmit(of: .search) {
-      viewModel.getData(query: query)
+      viewModel.getData(query: query, state: currentState)
     }
   }
 
@@ -35,16 +37,25 @@ public struct SpacesSearchView: View {
       }
     } else {
       return AnyView(
-        List {
-          ForEach(viewModel.items, id: \.id) { space in
-            SpaceView(space: space)
+        VStack {
+          Picker("States", selection: $currentState) {
+            ForEach(SpacesSearchViewModel.queryStates, id: \.self) { state in
+              Text(state.rawValue)
+                .tag(state)
+            }
           }
-        }
+          .pickerStyle(SegmentedPickerStyle())
+          List {
+
+            ForEach(viewModel.items, id: \.id) { space in
+              SpaceView(space: space)
+            }
+          }
           .listStyle(.inset)
+        }
       )
     }
   }
-
 }
 
 struct ContentView_Previews: PreviewProvider {

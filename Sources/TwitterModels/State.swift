@@ -8,7 +8,7 @@
 import Foundation
 
 extension Space {
-  public enum State: String, Decodable {
+  public enum State: String, Decodable, CaseIterable, Hashable {
     case live, scheduled, ended
   }
 }
